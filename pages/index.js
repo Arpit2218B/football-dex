@@ -20,7 +20,7 @@ export default function Home({ teams }) {
 
   return (
     <Layout>
-      <TopBar number={teams.length} searchTerm={searchTerm} searchHandler={search} />
+      <TopBar number={teamsFiltered.length} searchTerm={searchTerm} searchHandler={search} />
       <DataRow heading={true} name="Team" stata="Short name" statb="Founded" statc="National team" />
       {
         teamsFiltered.map(team => (
