@@ -17,6 +17,7 @@
 
 .layout__container {
     min-height: 100vh;
-    background-color: var(--background-color-primary);
     padding: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }

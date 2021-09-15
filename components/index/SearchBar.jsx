@@ -1,11 +1,11 @@
 import { SearchRounded } from "@material-ui/icons"
 import styles from '../../styles/Home.module.css'
 
-const SearchBar = () => {
+const SearchBar = ({ value, searchHandler }) => {
     return (
-        <div class={styles.search__bar}>
+        <div className={styles.search__bar}>
             <SearchRounded />
-            <input placeholder="Search by player name or club"></input>
+            <input placeholder="Search by team name or year founded" value={value} onChange={e => searchHandler(e)}></input>
         </div>
     )
 }

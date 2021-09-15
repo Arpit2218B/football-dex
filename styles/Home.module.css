@@ -14,6 +14,7 @@
   border: none;
   color: var(--text-color-primary);
   margin-left: 0.5rem;
+  width: 100%;
 }
 
 .search__bar > input::placeholder {
@@ -34,7 +35,7 @@
 .datarow__heading, 
 .datarow__data {
   display: flex;
-  padding: 1.5rem 0;
+  padding: 0.7rem;
   display: flex;
   align-items: center;
 }
@@ -42,6 +43,7 @@
 .datarow__data > span,
 .datarow__heading > span {
   flex: 3;
+  gap: 8px;
 }
 
 .datarow__data > span:first-child,
@@ -54,13 +56,58 @@
   box-shadow: var(--box-shadow);
   color: var(--text-color-primary);
   border-radius: 12px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
 .image {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  margin-right: 1rem;
+}
+
+.image > img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
 .datarow__heading {
   color: var(--text-color-secondary);
+}
+
+.name {
+  flex-basis: 8;
+}
+
+@media screen and (max-width: 600px) {
+  .image,
+  .statb,
+  .statc {
+    display: none;
+  }
+
+  .top__bar {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .search__bar {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+.no__data {
+  text-align: center;
+  color: var(--text-color-tertiary);
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  margin-top: 48px;
+}
+
+.no__data > h3 {
+  font-weight: var(--font-weight-light);
+  font-size: 2rem;
 }
