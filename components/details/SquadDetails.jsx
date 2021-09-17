@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styles from '../../styles/Details.module.css'
 
 const positions = {
@@ -7,27 +8,35 @@ const positions = {
     4: 'ATT'
 }
 
-const SquadDetails = ({ squad }) => {
-    const imageUrl = 'https://cdn.sportmonks.com/images/soccer/players/1/25057.png';
-    const name = 'Iker Cassilas';
-    const position = 'GK';
-    const nationality = 'Spain';
+const finalSquad = (squad) => {
+    const newSquad = squad.sort((p1, p2) => {
+        return p1.position_id - p2.position_id;
+    })
+    return newSquad;
+}
 
+const SquadDetails = ({ squad }) => {
+    
+    squad.data = finalSquad(squad.data);
+    
     return (
-        <div className={styles.squad}>
-            {
-                squad.data.map(player => {
-                    return (
-                        <Player 
-                        key={player.id} 
-                        imageUrl={player.player.data.image_path} 
-                        name={player.player.data.common_name} 
-                        position={positions[player.position_id]} 
-                        nationality={player.player.data.nationality} 
-                        />
-                    )
-                })
-            }
+        <div className={styles.squad__container}>
+            <h1 className={styles.squadHeading}>Squad</h1>
+            <div className={styles.squad}>
+                {
+                    squad.data.map(player => {
+                        return (
+                            <Player 
+                            key={player.id} 
+                            imageUrl={player.player.data.image_path} 
+                            name={player.player.data.common_name} 
+                            position={positions[player.position_id]} 
+                            nationality={player.player.data.nationality} 
+                            />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
